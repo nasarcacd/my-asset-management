@@ -1,67 +1,45 @@
-import { ToolbarOptions } from 'tubular-react';
-import {
-  ColumnDataType,
-  createColumn,
-  ColumnSortDirection,
-} from 'tubular-common';
 
-export const API_URL = '/api/assets/services';
+const API_URL = '/api/assets_services';
 
-export const toolbarOptions = new ToolbarOptions({
-  advancePagination: true,
-  bottomPager: true,
-  topPager: false,
-});
+const title = 'Mantenimiento de Activos';
 
-export const assetsServicesColumns = [
-  createColumn('unique_id', {
-    dataType: ColumnDataType.NUMERIC,
-    isKey: true,
-    label: 'Identificación',
-    sortDirection: ColumnSortDirection.ASCENDING,
-    sortOrder: 1,
-    sortable: false,
-    searchable: true,
-  }),
-  createColumn('name', {
-    dataType: ColumnDataType.String,
-    searchable: true,
-    label: 'name',
-    sortable: true,
-  }),
-  createColumn('plate', {
-    dataType: ColumnDataType.String,
-    label: 'Placa',
-    searchable: true,
-  }),
-  createColumn('serial', {
-    dataType: ColumnDataType.String,
-    label: 'Serie',
-    searchable: true,
-  }),
-  createColumn('next_service_date', {
-    dataType: ColumnDataType.Date,
-    label: 'Próximo Servicio',
-    sortDirection: ColumnSortDirection.ASCENDING,
-    sortOrder: 1,
-    sortable: true,
-  }),
-  createColumn('service_type', {
-    dataType: ColumnDataType.String,
-    label: 'Tipo Servicio',
-    sortDirection: ColumnSortDirection.ASCENDING,
-    sortOrder: 1,
-    sortable: true,
-    searchable: true,
-  }),
-  createColumn('service_status', {
-    dataType: ColumnDataType.String,
-    label: 'Estado Servicio',
-    sortDirection: ColumnSortDirection.ASCENDING,
-    sortOrder: 1,
-    sortable: true,
-    searchable: true,
-  }),
+const toolbarOptions = {
+  exportButton: true,
+  exportAllData: true,
+};
+
+const assetsServicesColumns = [
+  { title: 'Identificación', field: 'unique_id' },
+  { title: 'Nombrento', field: 'name' },
+  { title: 'Placa', field: 'plate' },
+  { title: 'Serie', field: 'serial' },
+  { title: 'Próximo Servicio', field: 'next_service_date' },
+  { title: 'Tipo Servicio', field: 'service_type' },
+  { title: 'Estado Servicio', field: 'service_status' },
 ];
 
-export const mobileBreakpointWidth = 800;
+const localizationOptions = {
+  pagination: {
+    labelRowsSelect: 'filas',
+    firstTooltip: 'Primera Página',
+    lastTooltip: 'Última Página',
+    previousTooltip: 'Página Anterior',
+    nextTooltip: 'Página Siguiente',
+  },
+  toolbar: {
+    exportName: 'Exportar CSV',
+    searchPlaceholder: 'Buscar',
+    exportTitle: 'Exportar',
+  },
+  body: {
+    emptyDataSourceMessage: 'Sin datos para mostrar',
+  },
+};
+
+export const customOptions = {
+  title: title,
+  toolbarOptions: toolbarOptions,
+  assetsServicesColumns: assetsServicesColumns,
+  localizationOptions: localizationOptions,
+  apiURL: API_URL
+}

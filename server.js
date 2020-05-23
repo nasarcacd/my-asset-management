@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
 const enforce = require('express-sslify');
-const tbNode = require('tubular-nodejs')('jsondata');
-const data = require("./db.json");
+const jsonServer = require('json-server');
+const router = jsonServer.router('db.json');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -29,22 +29,20 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+app.get('/api/ok', (req, res) => {
+  res.status(200).send({ success: "no problems!" });
+});
+
+router.render = (req, res) => {
+  res.jsonp({
+    payload: res.locals.data
+  })
+}
+
+app.use('/api', router);
+
 app.listen(port, error => {
   if (error) throw error;
   console.log('Server running on port ' + port);
 });
 
-app.post('/api/assets/services', (req, res) => {
-  var body = req.body;
-  //improvement request for missing parameters
-  if(req.body.searchText !== '')
-    body = { ...body, search : { operator : 'Auto', text: req.body.searchText }};
-
-  tbNode.createGridResponse(body, data).then(function(response) {
-    return res.json(response);
-  });
-});
-
-app.get('/api/assets/services', (req, res) => {
-  res.status(200).send({ success: "no problems!" });
-});
