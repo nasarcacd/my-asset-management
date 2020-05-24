@@ -17,6 +17,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
+//rewriting json server response
+router.render = (req, res) => {
+  res.jsonp({
+    payload: res.locals.data
+  })
+}
+
+//using jsonServer over API
+app.use('/api', router);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(compression());
   
@@ -28,18 +38,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-
-app.get('/api/ok', (req, res) => {
-  res.status(200).send({ success: "no problems!" });
-});
-
-router.render = (req, res) => {
-  res.jsonp({
-    payload: res.locals.data
-  })
-}
-
-app.use('/api', router);
 
 app.listen(port, error => {
   if (error) throw error;

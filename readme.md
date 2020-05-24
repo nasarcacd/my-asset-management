@@ -1,6 +1,6 @@
 # Asset Management React WebApp
 
-Display datagrid with Assets Services with options to filter, sorting and export info to CSV. Project built with React 16.13 and [Material UI](https://material-ui.com/), [Material Table](https://material-table.com/) using Node JS Express Server with [typicode-json-server](https://github.com/typicode/json-server) that provide a fake API based of JSON file.
+Display datagrid with Assets Services with options to filter, sorting and export info to CSV. Project built with React 16.13, [Material UI](https://material-ui.com/), [Material Table](https://material-table.com/) using Node JS Express Server with [typicode-json-server](https://github.com/typicode/json-server) that provide a fake API based of JSON file.
 
 ## Getting Started
 
@@ -14,6 +14,7 @@ What things you need to install the software and how to install them
 Node JS v13.6.0
 yarn 1.22.0
 npm 6.13.4
+[heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) for build to production
 ```
 
 ### Installing
