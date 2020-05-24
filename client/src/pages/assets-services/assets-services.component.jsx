@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import CustomMaterialTable from '../../components/custom-material-table/custom-material-table.component';
-import { customOptions } from './assets-services.resources';
+import customOptions from './assets-services.resources';
 import useStyles from './assets-services.style';
 
 const AssetsServices = () => {

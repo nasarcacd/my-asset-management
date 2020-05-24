@@ -36,10 +36,12 @@ const localizationOptions = {
   },
 };
 
-export const customOptions = {
+const customOptions = {
   title: title,
   toolbarOptions: toolbarOptions,
   assetsServicesColumns: assetsServicesColumns,
   localizationOptions: localizationOptions,
   apiURL: API_URL
 }
+
+export default customOptions;
