@@ -10,7 +10,7 @@ const toolbarOptions = {
 
 const assetsServicesColumns = [
   { title: 'Identificación', field: 'unique_id' },
-  { title: 'Nombrento', field: 'name' },
+  { title: 'Nombre', field: 'name' },
   { title: 'Placa', field: 'plate' },
   { title: 'Serie', field: 'serial' },
   { title: 'Próximo Servicio', field: 'next_service_date' },
