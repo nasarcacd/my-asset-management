@@ -7,7 +7,7 @@ export const retriveData = (query, apiURL) => {
     let orderBy = query.orderBy ? query.orderBy.field : '';
     let orderDirection = query.orderDirection;
     //fetch data from remote API
-    let url = `${apiURL}?_limit=${limit}&_page=${page}&q=${search}&_sort=${orderBy}&order=${orderDirection}`;
+    let url = `${apiURL}?_limit=${limit}&_page=${page}&q=${search}&_sort=${orderBy}&_order=${orderDirection}`;
     fetch(url)
       .then(async (response) => {
         let totalCount = Number(response.headers.get('x-total-count'));
