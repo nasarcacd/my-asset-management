@@ -15,7 +15,7 @@ const CustomMaterialTable = ({ options }) => {
         columns={options.assetsServicesColumns}
         localization={options.localizationOptions}
         data={query => retriveData(query, options.apiURL)}
-        />
+      />
     </div>
   );
 }

@@ -1,6 +1,13 @@
 export const retriveData = (query, apiURL) => {
   return new Promise((resolve, reject) => {
-    let url = `${apiURL}?_limit=${query.pageSize}&_page=${query.page + 1}&q=${query.search}`;
+    //get querys from material-table
+    let limit = query.pageSize;
+    let page = query.page + 1;
+    let search = query.search;
+    let orderBy = query.orderBy ? query.orderBy.field : '';
+    let orderDirection = query.orderDirection;
+    //fetch data from remote API
+    let url = `${apiURL}?_limit=${limit}&_page=${page}&q=${search}&_sort=${orderBy}&order=${orderDirection}`;
     fetch(url)
       .then(async (response) => {
         let totalCount = Number(response.headers.get('x-total-count'));

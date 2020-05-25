@@ -6,6 +6,7 @@ const title = 'Mantenimiento de Activos';
 const toolbarOptions = {
   exportButton: true,
   exportAllData: true,
+  pageSize: 5
 };
 
 const assetsServicesColumns = [
@@ -13,7 +14,7 @@ const assetsServicesColumns = [
   { title: 'Nombre', field: 'name' },
   { title: 'Placa', field: 'plate' },
   { title: 'Serie', field: 'serial' },
-  { title: 'Próximo Servicio', field: 'next_service_date' },
+  { title: 'Próximo Servicio', field: 'next_service_date', type: 'date' },
   { title: 'Tipo Servicio', field: 'service_type' },
   { title: 'Estado Servicio', field: 'service_status' },
 ];
@@ -33,7 +34,7 @@ const localizationOptions = {
   },
   body: {
     emptyDataSourceMessage: 'Sin datos para mostrar',
-  },
+  }
 };
 
 const customOptions = {
